@@ -10,7 +10,7 @@ function App() {
     <>
       <div>
         <Nav isLogin={isLogin} />
-        <Main />
+        <Main isLogin={isLogin} />
         <Footer />
       </div>
     </>
