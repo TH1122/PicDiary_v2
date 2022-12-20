@@ -15,7 +15,7 @@ const InfoContainer = styled.div`
     align-items: center;
   }
 `;
-const Info = () => {
+const Info = ({ setIsLogin }) => {
   const info = [
     "PicDiary는 날짜별로 사진과 그에 대한 제목과 이야기를 작성해",
     "Google Photos에 등록하여 그림일기를 만들 수 있는 애플리케이션입니다.",
@@ -29,7 +29,7 @@ const Info = () => {
   return (
     <>
       <InfoContainer>
-        <GoogleAPI />
+        <GoogleAPI setIsLogin={setIsLogin} />
         <div>
           {info.map((el) => {
             return <span>{el}</span>;

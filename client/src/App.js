@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <div>
-        <Nav isLogin={isLogin} />
-        <Main isLogin={isLogin} />
+        <Nav isLogin={isLogin} setIsLogin={setIsLogin} />
+        <Main isLogin={isLogin} setIsLogin={setIsLogin} />
         <Footer />
       </div>
     </>

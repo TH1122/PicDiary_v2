@@ -35,7 +35,7 @@ const NavLoginContainer = styled.div`
   }
 `;
 
-const NavLogin = () => {
+const NavLogin = ({ setIsLogin }) => {
   return (
     <>
       <NavLoginContainer>
@@ -55,6 +55,10 @@ const NavLogin = () => {
             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjAgMjBoLTR2LTRoNHY0em0tNi0xMGgtNHY0aDR2LTR6bTYgMGgtNHY0aDR2LTR6bS0xMiA2aC00djRoNHYtNHptNiAwaC00djRoNHYtNHptLTYtNmgtNHY0aDR2LTR6bTE2LTh2MjJoLTI0di0yMmgzdjFjMCAxLjEwMy44OTcgMiAyIDJzMi0uODk3IDItMnYtMWgxMHYxYzAgMS4xMDMuODk3IDIgMiAyczItLjg5NyAyLTJ2LTFoM3ptLTIgNmgtMjB2MTRoMjB2LTE0em0tMi03YzAtLjU1Mi0uNDQ3LTEtMS0xcy0xIC40NDgtMSAxdjJjMCAuNTUyLjQ0NyAxIDEgMXMxLS40NDggMS0xdi0yem0tMTQgMmMwIC41NTItLjQ0NyAxLTEgMXMtMS0uNDQ4LTEtMXYtMmMwLS41NTIuNDQ3LTEgMS0xczEgLjQ0OCAxIDF2MnoiLz48L3N2Zz4="
           />
           <img
+            onClick={() => {
+              setIsLogin(false);
+              localStorage.clear("credentialResponse");
+            }}
             className="Icon"
             alt="MenuIcon"
             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYgOXYtNGw4IDctOCA3di00aC04di02aDh6bS0xNi03djIwaDE0di0yaC0xMnYtMTZoMTJ2LTJoLTE0eiIvPjwvc3ZnPg=="

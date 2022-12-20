@@ -7,7 +7,7 @@ const GoogleAPIContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const GoogleAPI = () => {
+const GoogleAPI = ({ setIsLogin }) => {
   return (
     <>
       <GoogleAPIContainer>
@@ -16,6 +16,7 @@ const GoogleAPI = () => {
             onSuccess={(credentialResponse) => {
               let jwt = jwt_decode(JSON.stringify(credentialResponse));
               localStorage.setItem("credentialResponse", JSON.stringify(jwt));
+              setIsLogin(true);
             }}
             onError={() => {
               console.log("Login Failed");

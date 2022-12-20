@@ -8,10 +8,12 @@ const NavContainer = styled.nav`
   height: 65px;
 `;
 
-const Nav = ({ isLogin }) => {
+const Nav = ({ isLogin, setIsLogin }) => {
   return (
     <>
-      <NavContainer>{isLogin ? <NavLogin /> : <NavMain />}</NavContainer>
+      <NavContainer>
+        {isLogin ? <NavLogin setIsLogin={setIsLogin} /> : <NavMain />}
+      </NavContainer>
     </>
   );
 };

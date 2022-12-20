@@ -6,10 +6,12 @@ const MainContainer = styled.main`
   width: 100%;
 `;
 
-const Main = ({ isLogin }) => {
+const Main = ({ isLogin, setIsLogin }) => {
   return (
     <>
-      <MainContainer>{isLogin ? <Home /> : <Info />}</MainContainer>
+      <MainContainer>
+        {isLogin ? <Home /> : <Info setIsLogin={setIsLogin} />}
+      </MainContainer>
     </>
   );
 };
