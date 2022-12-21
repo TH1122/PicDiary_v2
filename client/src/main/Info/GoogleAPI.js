@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const GoogleAPIContainer = styled.div`
   display: flex;
@@ -15,8 +16,22 @@ const GoogleAPI = ({ setIsLogin }) => {
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               let jwt = jwt_decode(JSON.stringify(credentialResponse));
-              localStorage.setItem("credentialResponse", JSON.stringify(jwt));
-              setIsLogin(true);
+              axios("http://localhost:3001/user")
+                .then((res) => {
+                  return res.data;
+                })
+                .then((data) => {
+                  if (data.includes(jwt.email)) {
+                    localStorage.setItem(
+                      "credentialResponse",
+                      JSON.stringify(jwt.email)
+                    );
+                    window.location.reload();
+                  } else
+                    alert(
+                      "가입되지 않은 유저입니다. 회원가입 먼저 진행해주세요!"
+                    );
+                });
             }}
             onError={() => {
               console.log("Login Failed");
